@@ -1,36 +1,313 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jamaal Website</title>
+    <title>Jamaal | Portfolio</title>
+
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --black: #080808;
+            --yellow: #ffd600;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            background-color: #101827;
-            color: white;
+            background: var(--black);
+            color: var(--yellow);
             font-family: Arial, sans-serif;
-            text-align: center;
-            padding: 60px 15px;
-        }    h1 {
-        color: #00e0a4;
-    }
+            min-height: 100vh;
+        }
 
-    button {
-        background-color: #00e0a4;
-        padding: 12px 25px;
-        border: none;
-        border-radius: 8px;
-        font-size: 16px;
-    }
-</style>
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 25px 8%;
+            border-bottom: 1px solid #242424;
+        }
 
+        .logo {
+            font-size: 23px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .logo span {
+            color: white;
+        }
+
+        nav {
+            display: flex;
+            gap: 24px;
+        }
+
+        nav a {
+            color: var(--yellow);
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        nav a:hover {
+            color: white;
+        }
+
+        .hero {
+            min-height: 75vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 70px 8%;
+        }
+
+        .tag {
+            font-size: 12px;
+            letter-spacing: 4px;
+            margin-bottom: 25px;
+        }
+
+        h1 {
+            font-size: clamp(48px, 10vw, 105px);
+            line-height: 0.98;
+            letter-spacing: -5px;
+        }
+
+        h1 span {
+            color: white;
+        }
+
+        .description {
+            color: #aaa;
+            font-size: 15px;
+            margin-top: 28px;
+            line-height: 1.8;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 32px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 14px 23px;
+            border: 1px solid var(--yellow);
+            color: var(--yellow);
+            text-decoration: none;
+            font-size: 13px;
+            transition: 0.3s;
+        }
+
+        .btn.primary {
+            background: var(--yellow);
+            color: var(--black);
+        }
+
+        .btn:hover {
+            background: white;
+            color: black;
+            border-color: white;
+        }
+
+        .services {
+            padding: 55px 8%;
+            border-top: 1px solid #242424;
+        }
+
+        .section-title {
+            font-size: 12px;
+            letter-spacing: 4px;
+            margin-bottom: 25px;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+
+        .card {
+            border: 1px solid #292929;
+            padding: 25px 20px;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            border-color: var(--yellow);
+            transform: translateY(-4px);
+        }
+
+        .icon {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .card h3 {
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: #888;
+            font-size: 12px;
+            line-height: 1.7;
+        }
+
+        .contact {
+            margin: 30px 8% 60px;
+            padding: 35px;
+            background: var(--yellow);
+            color: var(--black);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .contact h2 {
+            font-size: 25px;
+        }
+
+        .contact a {
+            color: var(--black);
+            border: 1px solid var(--black);
+            padding: 12px 20px;
+            text-decoration: none;
+            font-size: 13px;
+        }
+
+        .contact a:hover {
+            background: var(--black);
+            color: var(--yellow);
+        }
+
+        footer {
+            padding: 25px 8%;
+            border-top: 1px solid #242424;
+            color: #777;
+            font-size: 12px;
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        @media (max-width: 600px) {
+            header {
+                padding: 22px 6%;
+            }
+
+            nav {
+                gap: 12px;
+            }
+
+            nav a {
+                font-size: 11px;
+            }
+
+            .hero {
+                padding: 75px 6%;
+                min-height: 70vh;
+            }
+
+            h1 {
+                letter-spacing: -3px;
+            }
+
+            .services {
+                padding: 45px 6%;
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            .contact {
+                margin: 20px 6% 40px;
+                padding: 25px;
+            }
+        }
+    </style>
 </head>
-<body><h1>Welcome to My Website!</h1>
 
-<p>My name is Jamaal.</p>
+<body>
 
-<button onclick="alert('Hello Jamaal!')">
-    Click Me
-</button>
+    <header>
+        <div class="logo">J<span>.</span>PORTFOLIO</div>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#services">Skills</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero" id="home">
+            <p class="tag">✦ DIGITAL CREATOR</p>
+
+            <h1>
+                DESIGN.<br>
+                <span>CREATE.</span><br>
+                INSPIRE.
+            </h1>
+
+            <p class="description">
+                UI/UX Designer · Web Creator<br>
+                Turning ideas into digital experiences.
+            </p>
+
+            <div class="buttons">
+                <a class="btn primary" href="#services">EXPLORE MY WORK ↗</a>
+                <a class="btn" href="#contact">LET'S CONNECT</a>
+            </div>
+        </section>
+
+        <section class="services" id="services">
+            <p class="section-title">✦ WHAT I DO</p>
+
+            <div class="cards">
+                <div class="card">
+                    <div class="icon">✳</div>
+                    <h3>UI / UX</h3>
+                    <p>Clean interfaces. Better experiences.</p>
+                </div>
+
+                <div class="card">
+                    <div class="icon">⌘</div>
+                    <h3>Web Design</h3>
+                    <p>Modern designs built for the web.</p>
+                </div>
+
+                <div class="card">
+                    <div class="icon">↗</div>
+                    <h3>Creative Ideas</h3>
+                    <p>Simple ideas. Bold digital solutions.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact" id="contact">
+            <h2>HAVE A PROJECT?</h2>
+            <a href="mailto:your@email.com">CONTACT ME ↗</a>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2026 J.PORTFOLIO</p>
+        <p>BUILT WITH HTML & CSS</p>
+    </footer>
 
 </body>
-</html>
+    </html>
